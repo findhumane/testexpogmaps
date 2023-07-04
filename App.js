@@ -43,7 +43,6 @@ function MyMapComponent() {
               lat: marker.lat,
               lng: marker.lng,
             },
-            map: map.current,
           });
         }
         actualMarkers.push(actualMarker);
@@ -74,6 +73,7 @@ export default function App() {
       //apiKey={Constants.expoConfig.extra.apiKey}
       render={renderLoading}
       libraries={["marker"]}
+      version="beta"
     >
       <MyMapComponent />
     </Wrapper>
