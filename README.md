@@ -1,5 +1,6 @@
 # testexpogmaps
 
+1. `npm install`
 1. Reproduce slowness problem:
    ```
    npm run web
