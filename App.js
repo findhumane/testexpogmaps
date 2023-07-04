@@ -1,20 +1,25 @@
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import Constants from 'expo-constants';
+import { Wrapper, Status } from "@googlemaps/react-wrapper";
+import { MarkerClusterer } from "@googlemaps/markerclusterer";
 
 export default function App() {
+  const renderLoading = (status) => {
+    if (status == Status.LOADING) {
+      return <h3>Loading...</h3>;
+    }
+    return null;
+  };
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+    <View style={{ flex: 1 }}>
+      <Wrapper
+        apiKey={Constants.expoConfig.extra.apiKey}
+        render={renderLoading}
+        libraries={["marker"]}
+      >
+        <Text>Loaded</Text>
+      </Wrapper>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
